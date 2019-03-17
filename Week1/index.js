@@ -49,13 +49,8 @@
 
         createAndAppend('div', root, { id: 'contributors' });
         createAndAppend('h2', contributors, { id: 'contributorsTitle', text: 'Contributors' });
-        loadContributors(data[0]);
-
-        // createAndAppend('ul', contributors, { id: 'contributorsList' });
-        // createAndAppend('li', contributorsList, { class: 'contributorItem' });
-        createAndAppend('img', li.contributorItem, { class: 'contributor-avatar' });
-        createAndAppend('p', li.contributorItem, { class: 'contributor-name' });
-        createAndAppend('p', li.contributorItem, { class: 'contributor-badge' });
+        createAndAppend('ul', contributors, { id: 'contributorsList' });
+        loadContributors(data);
         // END NEW
       }
     });
@@ -95,32 +90,4 @@
   }
   // *********************** OK ***********************************
   // Display Contributors
-  function loadcontributors(element) {
-    let contributorsList = createAndAppend('ul', contributors, {
-      id: 'contributorsList',
-      class: 'contributor-list',
-    });
-
-    let link;
-    let contributor;
-
-    for (let i = 0; i < data.length; i++) {
-      link = createAndAppend('a', contList, {
-        href: data[i].html_url,
-        target: '_blank',
-      });
-      contributor = createAndAppend('li', link, {
-        class: 'contributor-item',
-      });
-      createAndAppend('img', contributor, {
-        src: data[i].avatar_url,
-        class: 'contributor-avatar',
-      });
-      createAndAppend('p', contributor, { text: data[i].login });
-      createAndAppend('p', contributor, {
-        text: data[i].contributions,
-        class: 'contributor-badge',
-      });
-    }
-  }
 }
